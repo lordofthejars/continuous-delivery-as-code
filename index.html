@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Continuous Delivery as Code</title>
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <body>
+    <article>
+      <section data-bespoke-backdrop="backdrop backdrop--title" class="title undefined">
+        <h2 class="gothicfont smallgothic">Continuous Delivery as <span class='important'>Code</span></h2>
+        <h3 class="bold">with <span class='important'>Jenkins</span> and <span class='important'>Gradle</span></h3><i class="fa fa-twitter-square"><span class='gothicfont' style='font-size:1em; letter-spacing: 0.05em;'>&nbsp;alexsotob &nbsp;</span></i>
+      </section>
+      <section>
+        <div class="main-wrap">
+          <div class="leftbar">
+            <h2 style="font-size:2em" class="gothicfont">Alex Soto</h2><br>
+            <h2 style="font-size:1em" class="gothicfont important">CloudBees Engineer</h2>
+            <h2 style="font-size:1em" class="gothicfont">Open Source Advocate</h2>
+            <h2 style="font-size:1em" class="gothicfont important">@alexsotob</h2><img src="../images/public.png" style="width:40%">
+          </div>
+          <div class="rightbar"><img src="images/family.jpg" style="width:100%"></div>
+        </div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--adarise" class="adarise undefined">
+        <h2 class="biggothic gothicfont">Questions</h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--mac" class="mac undefined">
+        <h1 class="small"><span class='important'>Software</span> is eating the <span class='important'>world</span></h1>
+        <aside role="note">Every business is in the sw business</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/cockpit.jpg" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/tesla.jpg" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/tesla-update.jpg" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/airport.png" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/casino.png" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--speed" class="speed undefined">
+        <ul class="lists">
+          <li class="bigfont">Faster</li>
+          <li class="bigfont">Sooner</li>
+          <li class="bigfont">Better</li>
+        </ul>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gears" class="gears undefined">
+        <h2 class="gothicfont">What is <span class='important'>Continuous Delivery</span>?</h2>
+        <aside role="note">A Build tool? CI server? Automated tests, quality, deployment,</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--money" class="money undefined">
+        <h2 class="gothicfont">Deliver <span class='important'> Business Value</span> more <span class='important'>Frequently</span></h2>
+        <aside role="note">Money, fast feedback</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <!-- +slide('pilars')-->
+      <!--  div.dividebyfour.NW-->
+      <!--    img.bullet.bespoke-bullet.bespoke-bullet-active.bespoke-bullet-current(src='images/deliverybox.jpg', style="width:100%; height:100%")-->
+      <!--  div.dividebyfour.NE-->
+      <!--    img.bullet.bespoke-bullet.bespoke-bullet-inactive(src='images/time.jpg', style="width:100%;height:100%")-->
+      <!--  div.dividebyfour.SW-->
+      <!--    img.bullet.bespoke-bullet.bespoke-bullet-inactive(src='images/automate.jpg', style="width:100%;height:100%")-->
+      <!--  div.dividebyfour.SE-->
+      <!--    img.bullet.bespoke-bullet.bespoke-bullet-inactive(src='images/test.jpg', style="width:100%;height:100%")-->
+      <!--  aside(role='note') Automate makes everything reproducible-->
+      <section><img src="images/pipeline.png" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--adabored" class="adabored undefined">
+        <h2 class="gothicfont smallgothic">No More Theory <span class='important'>Please!!</span></h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont smallgothic">Commit Stage</h2><img src="images/compile.png" class="schemas">
+        <aside role="note">Notice a lot of tests, automatic tests</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">build.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">apply plugin: 'war'
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">allprojects {
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  
+  group = 'org.starwars'
+  version = '1.0-SNAPSHOT'
+  
+  repositories {
+    mavenCentral()
+  }
+}
+</code><code class="bullet bespoke-bullet bespoke-bullet-inactive">dependencies {
+  providedCompile 'javax:javaee-api:7.0'
+}
+</code></pre>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">./gradlew compileJava</div>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">Gradle 2.12 > compileOnly scope</div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">build.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">dependencies {
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.hamcrest:hamcrest-library:1.3'
+  testCompile('org.mockito:mockito-all:1.10.19') {
+    exclude group: 'org.hamcrest'
+  }
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">test {
+  systemProperties System.getProperties()
+  systemProperties['starwars_planets_url'] = 'http://preproduction:8080/starwars'
+}
+</code></pre>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">./gradlew :test</div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--test" class="test undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Unit</span> tests are <br/>not <span class='important'>Enough</span></h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img style="width:75%;height:75%" src="images/folders.png" class="schemashh">
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">settings.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">include 'integration-test'
+</code></pre>
+        <h2 class="gothicfont filegothic">integration-test/build.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">test {
+  if (project.hasProperty("happyPath")) {
+      filter {
+          includePatterns = ["org.starwars.PlanetServiceAPITest.shouldReturnTheAverage"]
+      }
+  }
+}
+</code></pre>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">./gradlew :integration-test:test -PhappyPath</div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--pmd" class="pmd undefined">
+        <h2 class="gothicfont smallgothic">Code <span class='important'>Analysis</span></h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--elsa" class="elsa undefined">
+        <h2 class="gothicfont smallgothic">Let <span class='important'>Developers</span> Go</h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--arquillian" class="arquillian undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Integration</span> Tests</h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--jacoco" class="jacoco undefined">
+        <h2 class="gothicfont smallgothic">Code <span class='important'>Coverage</span></h2>
+        <aside role="note">On the fly bytecode instrumentation, no modification of source code, exec</aside>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">build.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">apply plugin: 'jacoco'
+</code><code class="bullet bespoke-bullet bespoke-bullet-inactive">jacoco {
+  toolVersion = "0.7.5.201505241946"
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">task jacocoRootTestReport(type: JacocoReport) {
+    sourceSets sourceSets.main
+    
+    def jacocoTestFiles = ["$buildDir/jacoco/test.exec"]
+    subprojects.each { p ->
+        def coverageFileLocation = "$p.buildDir/jacoco/test.exec"
+        if (new File(coverageFileLocation).exists()) {
+            jacocoTestFiles << coverageFileLocation
+        }
+    }
+    </code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">&nbsp;&nbsp;&nbsp;&nbsp;executionData files(jacocoTestFiles)
+    reports {
+        xml.enabled false
+        csv.enabled false
+    }
+}
+</code></pre>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">./gradlew jacocoRootTestReport</div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/coverage.png" class="schemas">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--version" class="version undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Versioning</span> Strategy</h2>
+        <aside role="note">Every build is a potential release</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">1.0-SNAPSHOT -> 1.0.134</h2><img src="images/jenkins.png">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">gradle/versioning.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+Pattern SHORT_VERSION_PATTERN = ~/(\d+)\.(\d+)/
+Pattern SNAPSHOT_SHORT_VERSION_PATTERN = ~/$WHITESPACE$SHORT_VERSION_PATTERN$SNAPSHOT_IDENTIFIER$WHITESPACE/
+Matcher m = checkInputAgainstPattern(version, SNAPSHOT_SHORT_VERSION_PATTERN)
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">if (m) {
+    Integer major = m[0][1].toInteger()
+    Integer minor = m[0][2].toInteger()
+    project.version = new ProjectVersion(major, minor, System.env.SOURCE_BUILD_NUMBER)
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">class ProjectVersion {
+    Integer major
+    Integer minor
+    String buildNumber
+    @Override
+    String toString() {
+        String fullVersion = "$major.$minor"
+        if(buildNumber) fullVersion += ".$buildNumber"
+        return fullVersion
+    }
+}</code></pre>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--packaging" class="packaging undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Packaging</span> Application</h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">build.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">allprojects {
+  apply from: "$rootDir/gradle/versioning.gradle"
+}
+</code><code class="bullet bespoke-bullet bespoke-bullet-inactive">war {
+    manifest {
+        attributes "Implementation-Version": project.version.toString()
+    }
+}</code></pre>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">./gradlew assemble</div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--books" class="books undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Publishing</span></h2>
+        <aside role="note">Store artifact into repo (artifactory/nexus) for reusing. Docker.</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">build.gradle</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">apply plugin: 'maven-publish'
+
+task sourceJar(type: Jar) {
+  from sourceSets.main.allJava
+}
+
+task javadocJar (type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">ext.repoUrl = "$config.binaryRepository.url/$config.binaryRepository.name"
+publishing {
+  publications {
+      webApp(MavenPublication){
+        from components.web
+        artifact sourceJar {classifier "sources"}
+        artifact javadocJar {classifier "javadoc"}
+      }
+  }
+  repositories {
+    maven { url repoUrl}
+  }
+}
+</code></pre>
+        <div class="square bullet bespoke-bullet bespoke-bullet-inactive">./gradlew publish</div>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont smallgothic">Acceptance Stage</h2><img src="images/deploy.png" class="schemas">
+        <aside role="note">Notice a lot of tests, automatic tests, deployment same artifacts to different env</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--serenity" class="serenity undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Acceptance</span> Tests</h2>
+        <h3>with Serenity BDD</h3>
+        <aside role="note">Automated Acceptance Testing with Style, create easy AT for JUnit, JBehave or Cucumber integrating to generate test reports (features to do, done, failing) forcing you to use the best practices (Screenplay pattern, Steps pattern, PageObjects, ...)</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont smallgothic">Report</h2><img src="images/serentiy-report.png" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gatling" class="gatling undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Stress</span> Tests</h2>
+        <h3>with Gatling</h3>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont smallgothic">Report</h2><img src="images/gatling-report.png" class="schemashh">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--contract" class="contract undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Contract</span> Tests</h2>
+        <h3>with Pact-JVM</h3>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont smallgothic">Contract Driven Tests</h2><img src="images/pact_two_parts.png" class="schemashh">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--orch" class="orch undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Orchestrating</span> Stages</h2>
+        <h3>with Jenkins</h3>
+      </section>
+      <section><img src="images/jenkinseco.jpg" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/freestyle.png" class="schemashh">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/fs-define-test.png" class="schemashh">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/fs-define-deploy.png" class="schemashh">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/fs-result-test.png" class="schemashh">
+        <aside role="note">Spread everything</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/archiveartifacts.png" style="height:70%" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/copyartifacts.png" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/fs-overview.png" class="schemashh">
+        <aside role="note">Spread everything</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--alexoh" class="alexoh undefined">
+        <h2 class="gothicfont smallgothic">No More <span class='important'>Jobs</span> Please</h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--railyard" class="railyard undefined">
+        <h2 class="gothicfont smallgothic">Jenkins <span class='important'>Pipeline</span> Plugin</h2>
+        <aside role="note">Groovy DSL</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont smallgothic underline">Features of Pipeline Plugin</h2>
+        <ul class="lists">
+          <li>Configuration in Source Repositories</li>
+          <li>Less click-and-type, more code</li>
+          <li>From simple to complex</li>
+          <li>Survives Jenkins restarts & connection losses ($)</li>
+          <li>Reusable Definitions</li>
+          <li>Build history/trend segregated per branches</li>
+          <li>UI</li>
+        </ul>
+      </section>
+      <section><img src="images/pipelineplug.png" class="schemash">
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">Jenkinsfile (1/3)</h2>
+        <pre class="small language-groovy"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">stage 'compile'
+node {
+        checkout scm
+        sh "./gradlew clean compileJava"
+        stash excludes: 'build/', includes: '**', name: 'source'
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">stage 'commitTest'
+parallel 'unit' : {
+    node {
+        unstash 'source'
+        sh "./gradlew :test"
+        stash includes: 'build/jacoco&#47;*.exec', name: 'unitCodeCoverage'
+        step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
+    }
+}, 'integration': {
+    node {
+        unstash 'source'
+        sh "./gradlew -PhappyPath :integration-test:test"
+        step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
+    }
+}</code></pre>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">jenkins/gradle.groovy</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">def assemble(String switches = null) {
+    run 'assemble', switches
+}
+</code><code class="bullet bespoke-bullet bespoke-bullet-inactive">void run(String tasks, String switches = null) {
+    String gradleCommand = "";
+    gradleCommand += './gradlew '
+    gradleCommand += tasks
+    if(switches != null) {
+        gradleCommand += ' '
+        gradleCommand += switches
+    }
+    sh gradleCommand.toString()
+}
+</code><code class="bullet bespoke-bullet bespoke-bullet-inactive">return this;</code></pre>
+        <h2 class="gothicfont filegothic">Jenkinsfile (2/3)</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-inactive">def gradle = load 'jenkins/gradle.groovy'
+</code><code class="bullet bespoke-bullet bespoke-bullet-inactive">node('linux') {
+    unstash 'source'
+    withEnv(["SOURCE_BUILD_NUMBER=${env.BUILD_NUMBER}"]) {
+        gradle.assemble()
+    }
+}
+</code></pre>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">Jenkinsfile (3/3)</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">input message: "Deploy Application to QA ?"
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">stage name: 'Deploy to QA', concurrency: 1
+node {
+    echo "Application Deployed to QA."
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">withCredentials([[$class: 'UsernamePasswordMultiBinding',
+credentialsId: 'MyID', usernameVariable: 'GIT_USERNAME',
+passwordVariable: 'GIT_PASSWORD']]) {
+
+  sh "git tag -a some_tag -m 'Jenkins'"
+  sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@<REPO> --tags"
+}
+</code></pre><img src="images/credentials.png" style="height:20%" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--whale" class="whale undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Docker</span> Pipeline Integration</h2>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">Jenkinsfile</h2>
+        <pre class="small language-javascript"><code class="bullet bespoke-bullet bespoke-bullet-active bespoke-bullet-current">docker.withRegistry('https://lordofthejars-docker-continuous_delivery.bintray.io', 'd4fc3fa9-39f7-47ea-a57c-795642f90989') {
+    git 'git@github.com:lordofthejars/busybox.git'
+    def newApp = docker.build "lordofthejars-docker-continuous_delivery.bintray.io/lordofthejars/javatest:${env.BUILD_TAG}"
+    newApp.push()
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">docker.image('lordofthejars/javatest').withRun {c ->
+  sh './executeTests.sh'
+}
+</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">docker.image('8-jdk-alpine').inside('-v ~/.gradle:/root/.gradle -u 1000:50') {
+  // workspace is mounted inside image automatically
+  sh './gradlew compileJava'
+}</code></pre>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/ui.png" class="schemash">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <!-- +slide-->
+      <!--  iframe(src='https://localhost:57575/')-->
+      <section data-bespoke-backdrop="backdrop backdrop--adathink" class="adathink undefined">
+        <h2 class="gothicfont smallgothic">Let's <span class='important'>wind down</span></h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--puzzle" class="puzzle undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Only One</span> Piece of <br/> the <span class='important'>Jigsaw</span></h2>
+        <aside role="note">Test, Culture, Metrics, have a crappy process and you automate it, you get a crappy automated process</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--penalty" class="penalty undefined">
+        <h2 class="gothicfont smallgothic">Follow the <span class='important'>Rules</span>, <br/>Adapt to your <span class='important'>Needs</span></h2>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2>CloudBees</h2><i class="fa fa-heart important fa-2x"></i>
+        <h2>Jenkins</h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--deming" class="deming undefined">
+        <h4>It is <span class='important'>not necessary</span> to change. <br/> <span class='important'>Survival</span> is <span class='important'>not mandatory</span>.</h4>
+        <h3>W. Edwards Deming</h3>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><img src="images/profile.jpg" class="avatar"><br><a href="http://www.slideshare.net/asotobu/jenkins-docker" style="border:none"><i class="fa fa-slideshare"></i>
+          <h3>http://www.slideshare.net/asotobu/continuous-delivery-as-code</h3><i class="fa fa-envelope"></i>
+          <h3>asotobu@gmail.com</h3></a>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section><a href="github.com/lordofthejars/starwars" style="border:none">
+          <h5 style="font-size: .55em">https://github.com/lordofthejars/starwars</h5></a><a href="https://jenkins.io/" style="border:none">
+          <h5 style="font-size: .55em">https://jenkins.io/</h5></a><a href="https://jenkins.io/solutions/pipeline/" style="border:none">
+          <h5 style="font-size: .55em">https://jenkins.io/solutions/pipeline/</h5></a><a href="http://arquillian.org/" style="border:none">
+          <h5 style="font-size: .55em">http://arquillian.org/</h5></a><a href="http://www.thucydides.info/" style="border:none">
+          <h5 style="font-size: .55em">http://www.thucydides.info/</h5></a><a href="http://gatling.io/" style="border:none">
+          <h5 style="font-size: .55em">http://gatling.io/</h5></a><a href="https://github.com/DiUS/pact-jvm" style="border:none">
+          <h5 style="font-size: .55em">https://github.com/DiUS/pact-jvm</h5></a><a href="https://gradle.org/">
+          <h5 style="font-size: .55em">https://gradle.org/</h5></a>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
