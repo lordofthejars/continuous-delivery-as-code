@@ -36,9 +36,6 @@
       <section><img src="images/cockpit.jpg" class="schemash">
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
       </section>
-      <section><img src="images/tesla.jpg" class="schemash">
-        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
-      </section>
       <section><img src="images/tesla-update.jpg" class="schemash">
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
       </section>
@@ -347,7 +344,7 @@ publishing {
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
       </section>
       <section data-bespoke-backdrop="backdrop backdrop--railyard" class="railyard undefined">
-        <h2 class="gothicfont smallgothic">Jenkins <span class='important'>Pipeline</span> Plugin</h2>
+        <h2 class="gothicfont smallgothic">Jenkins <span class='important'>Pipeline-as-Code</span></h2>
         <aside role="note">Groovy DSL</aside>
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
       </section>
@@ -423,15 +420,15 @@ parallel 'unit' : {
 </code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">stage name: 'Deploy to QA', concurrency: 1
 node {
     echo "Application Deployed to QA."
-}
-</code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">withCredentials([[$class: 'UsernamePasswordMultiBinding',
-credentialsId: 'MyID', usernameVariable: 'GIT_USERNAME',
-passwordVariable: 'GIT_PASSWORD']]) {
+    </code><br><code class="bullet bespoke-bullet bespoke-bullet-inactive">&nbsp;&nbsp;  withCredentials([[$class: 'UsernamePasswordMultiBinding',
+&nbsp;&nbsp;  credentialsId: 'MyID', usernameVariable: 'GIT_USERNAME',
+&nbsp;&nbsp;  passwordVariable: 'GIT_PASSWORD']]) {
 
-  sh "git tag -a some_tag -m 'Jenkins'"
-  sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@<REPO> --tags"
-}
-</code></pre><img src="images/credentials.png" style="height:20%" class="schemash">
+&nbsp;&nbsp;    sh "git tag -a some_tag -m 'Jenkins'"
+&nbsp;&nbsp;    sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@<REPO> --tags"
+&nbsp;&nbsp;  }
+&nbsp;&nbsp;  hipchatSend(message: 'Build tagged')
+}</code></pre><img src="images/credentials.png" style="height:20%" class="schemash">
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
       </section>
       <section data-bespoke-backdrop="backdrop backdrop--whale" class="whale undefined">
@@ -451,10 +448,24 @@ passwordVariable: 'GIT_PASSWORD']]) {
   // workspace is mounted inside image automatically
   sh './gradlew compileJava'
 }</code></pre>
+        <aside role="note">Multiple scm</aside>
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
       </section>
       <section><img src="images/ui.png" class="schemash">
         <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--branch" class="branch undefined">
+        <h2 class="gothicfont smallgothic"><span class='important'>Multibranch</span> Pipeline</h2>
+        <aside role="note">Jenkinsfile</aside>
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars</i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">Multibranch Pipeline job</h2><img src="images/multibranch.png" class="schemas">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars      </i></div>
+      </section>
+      <section>
+        <h2 class="gothicfont filegothic">Dashboard with detected Branches</h2><img src="images/multibranchrun.png" class="schemas">
+        <div class="footer"><i class="fa fa-twitter">&nbsp;alexsotob&nbsp;</i><i class="fa fa-github">&nbsp;lordofthejars  </i></div>
       </section>
       <!-- +slide-->
       <!--  iframe(src='https://localhost:57575/')-->
